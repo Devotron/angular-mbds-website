@@ -1,0 +1,28 @@
+<div *ngFor="let v of videos" class="video-gallery">
+  <!--<app-video-item [video]='v'></app-video-item>-->
+  <mat-card *ngIf="v" class="item">
+    <mat-card-header>
+      <mat-card-title class="video-item-title">{{v.title}}</mat-card-title>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>visibility</mat-icon>
+          <span>Voir la vidéo</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>mode_edit</mat-icon>
+          <span>Modifier</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>close</mat-icon>
+          <span>Supprimer</span>
+        </button>
+      </mat-menu>
+    </mat-card-header>
+    <mat-card-content>
+      <img [src]='getThumbnail(v)' alt="thumbnail" height="{{itemHeight}}" width="{{itemWidth}}">
+    </mat-card-content>
+  </mat-card>
+</div>

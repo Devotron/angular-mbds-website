@@ -13,9 +13,11 @@ export class AppComponent implements OnInit {
   coursesObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase) { }
   ngOnInit() {
-    this.coursesObservable = this.getCourses('/courses');
+    this.coursesObservable = this.getCourses('/videos');
   }
   getCourses(listPath): Observable<any[]> {
     return this.db.list(listPath).valueChanges();
   }
+
+  getVideo(id:)
 }

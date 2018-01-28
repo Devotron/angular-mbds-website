@@ -1,0 +1,22 @@
+
+.video-details-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  background: #E8EAF6;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  width: 1000px;
+  background: #FAFAFA;
+}
+
+.details {
+  justify-items: center;
+}

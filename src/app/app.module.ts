@@ -8,16 +8,23 @@ import {environment} from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { NavbarComponent } from './navbar/navbar.component';
+import {GalleryModule} from "./gallery/gallery.module";
+import {VideoDetailsComponent} from "./gallery/video-details/video-details.component";
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    GalleryModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,22 @@
-<div *ngFor="let course of coursesObservable | async">
-  <h3><a href="#">{{course.title}}</a> </h3>
-  <p>{{course.description}}</p>
-</div>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+  </head>
+  <body>
+    <div *ngFor="let course of coursesObservable | async">
+      <h3><a href="#">{{course.title}}</a> </h3>
+      <p>{{course.description}}</p>
+    </div>
+
+    <button mat-button aria-label='Ajouter une vidéo'>
+      <mat-icon>playlist_add</mat-icon>
+      <span> Ajouter une vidéo</span>
+    </button>
+
+    <app-video-gallery></app-video-gallery>
+  </body>
+</html>
+<head></head>
+
 
