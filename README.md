@@ -1,27 +1,22 @@
 # AngularProjetMbds
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+Projet réalisé par Michaël Gianfaldone.
 
-## Development server
+## Installation
+
+Lancer la commande `npm install` pour telecharger les dépendances du projet.
+
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Lancement
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lancer ensuite au choix la commande `ng start` ou `ng serve --port <votre-port-ici>`.
 
-## Build
+A moin d'avoir configurer le port avec l'option --port, l'application se lance par défaut sur `http://localhost:4200/`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Fonctionnalitées
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
++ Affichage gallerie de vidéos
++ Ajout, Modification et suppresion de vidéos
+- Pas de validation sur les formulaires (validation video déjà existante).
