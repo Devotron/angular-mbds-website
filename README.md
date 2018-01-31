@@ -6,9 +6,6 @@ Projet réalisé par Michaël Gianfaldone.
 
 Lancer la commande `npm install` pour telecharger les dépendances du projet.
 
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Lancement
 
 Lancer ensuite au choix la commande `ng start` ou `ng serve --port <votre-port-ici>`.
@@ -19,4 +16,4 @@ A moin d'avoir configurer le port avec l'option --port, l'application se lance p
 
 + Affichage gallerie de vidéos
 + Ajout, Modification et suppresion de vidéos
-- Pas de validation sur les formulaires (validation video déjà existante).
++ Pas de validation sur les formulaires (verification video déjà existante).
