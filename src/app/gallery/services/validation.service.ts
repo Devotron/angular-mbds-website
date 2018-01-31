@@ -8,7 +8,9 @@ export class ValidationService {
 
   constructor(private dataService: VideoDataService) { }
 
-  /*VideoAlreadyExist(control: AbstractControl) {
+   /*static VideoAlreadyExist(control: AbstractControl) {
+
+
 
     console.log("control value : " + control.value.toString());
 
@@ -16,7 +18,6 @@ export class ValidationService {
     let extractId = control.value.toString().split('v=')[1];
     console.log(extractId);
 
-    if ( extractId != undefined ) {
       videoID = extractId.split('&')[0];
 
       let video;
@@ -24,16 +25,19 @@ export class ValidationService {
       this.dataService.getSingleVideo(videoID).subscribe(
         v => {
           video = v;
-          //if ( video)
+          if ( video === null ) {
+            console.error("[ValidationService] - Video already exist");
+            return { VideoAlreadyExist: true };
+          }
         }
       );
-    }
+
 
     console.log(videoID);
 
-    if (!control.value.startsWith('https') || !control.value.includes('.io')) {
-      return { validUrl: true };
-    }
+    // if (!control.value.startsWith('https') || !control.value.includes('.io')) {
+    //   return { validUrl: true };
+    // }
 
     return null;
   }*/

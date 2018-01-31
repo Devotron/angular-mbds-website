@@ -9,6 +9,9 @@
     <label for="video">Url de la vidéo</label>
     <input type="url" name="video" id="video" class="form-control" [formControl]="videoUrl" required="true">
   </div>
+  <p *ngIf="error" class="alert alert-danger">
+    <strong>Error:</strong> Cette vidéo existe déjà !
+  </p>
 
   <div class="form-group">
     <label for="title">Titre de la vidéo</label>
@@ -19,7 +22,10 @@
     <label for="desc">Description de la vidéo</label>
     <textarea row="5" name="desc" id="desc" class="form-control" [formControl]="desc"></textarea>
   </div>
+  <div class="d-flex justify-content-around">
+    <button type="submit" class="btn btn-primary">Ajouter la vidéo</button>
+    <button type="button" class="btn btn-primary" routerLink="/videos">Annuler</button>
+  </div>
 
-  <button type="submit" class="btn btn-primary">Ajouter la vidéo</button>
 </form>
 </mat-card>

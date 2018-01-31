@@ -1,7 +1,7 @@
 import {AbstractControl, ValidatorFn} from '@angular/forms';
 import {VideoDataService} from "../services/video-data.service";
 
-export function VideoAlreadyExist(control: AbstractControl, dataService: VideoDataService) {
+export function VideoAlreadyExist(control: AbstractControl) {
 
   console.log("control value : " + control.value.toString());
 
