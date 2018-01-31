@@ -1,20 +1,36 @@
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
+
   </head>
   <body>
-    <div *ngFor="let course of coursesObservable | async">
-      <h3><a href="#">{{course.title}}</a> </h3>
-      <p>{{course.description}}</p>
+  <button mat-button aria-label="Page d'accueil" routerLink="/videos">
+    <mat-icon>ondemand_video</mat-icon>
+    <span></span>
+  </button>
+  <button mat-button aria-label='Ajouter une vidéo' routerLink="/video/add">
+    <mat-icon>playlist_add</mat-icon>
+    <span> Ajouter une vidéo</span>
+  </button>
+  <br>
+
+  <router-outlet></router-outlet>
+
+    <!--<div *ngFor="let v of videos | async">
+      <h3><a href="#">{{v.title}}</a> </h3>
+      <p>{{v.desc}}</p>
+    </div>
+
+    <div *ngIf="video">
+      Hola
+      <h3><a href="#">{{video.title}}</a> </h3>
+      <p>{{video.description}}</p>
     </div>
 
     <button mat-button aria-label='Ajouter une vidéo'>
       <mat-icon>playlist_add</mat-icon>
       <span> Ajouter une vidéo</span>
-    </button>
+    </button>-->
 
-    <app-video-gallery></app-video-gallery>
   </body>
 </html>
 <head></head>

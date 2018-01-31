@@ -4,7 +4,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-  background: #E8EAF6;
+  //background: #E8EAF6;
 }
 
 .video-details {
@@ -14,7 +14,7 @@
   align-content: center;
   justify-content: space-between;
   width: 1000px;
-  background: #FAFAFA;
+  //background: #FAFAFA;
 }
 
 .details {

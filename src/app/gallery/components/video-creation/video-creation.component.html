@@ -1,0 +1,25 @@
+<mat-card class="video-form">
+<form [formGroup]="videoForm" (ngSubmit)="formAction()">
+
+  <!--<div *ngIf="videoForm.get('videoUrl').errors | async">
+    Invalid Video URL
+  </div>-->
+
+  <div class="form-group">
+    <label for="video">Url de la vidéo</label>
+    <input type="url" name="video" id="video" class="form-control" [formControl]="videoUrl" required="true">
+  </div>
+
+  <div class="form-group">
+    <label for="title">Titre de la vidéo</label>
+    <input type="text" name="title" id="title" class="form-control" [formControl]="title" required="true">
+  </div>
+
+  <div class="form-group">
+    <label for="desc">Description de la vidéo</label>
+    <textarea row="5" name="desc" id="desc" class="form-control" [formControl]="desc"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Ajouter la vidéo</button>
+</form>
+</mat-card>

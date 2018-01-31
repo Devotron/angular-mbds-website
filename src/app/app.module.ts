@@ -8,15 +8,15 @@ import {environment} from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { NavbarComponent } from './navbar/navbar.component';
 import {GalleryModule} from "./gallery/gallery.module";
-import {VideoDetailsComponent} from "./gallery/video-details/video-details.component";
+import {VideoDetailsComponent} from "./gallery/components/video-details/video-details.component";
 import { MaterialModule } from './material.module';
+import { AppRoutingModule } from './/app-routing.module';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,9 @@ import { MaterialModule } from './material.module';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     GalleryModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

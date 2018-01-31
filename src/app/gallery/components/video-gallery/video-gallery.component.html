@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let v of videos | async" class="col-md-3 video" style="margin-bottom: 10px; font-size: 15px;">
+      <div class="card video-item">
+        <div class="d-flex justify-content-around">
+          <button mat-icon-button class="button-update" routerLink="/video/update/{{v.id}}">
+            <mat-icon aria-label="Modifier la video">mode_edit</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="removeVideo(v.id)" >
+            <mat-icon aria-label="Supprimer la video">delete</mat-icon>
+          </button>
+        </div>
+
+        <a href="" routerLink="/video/{{v.id}}">
+          <img *ngIf="v" [src]='getThumbnail(v)' class="card-img-top" alt="thumbnail" height="{{itemHeight}}" width="{{itemWidth}}">
+
+          <div class="card-body">
+            <h5 class="card-title">{{v.title}}</h5>
+          </div> </a>
+
+      </div>
+    </div>
+  </div>
+</div>
