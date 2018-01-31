@@ -6,6 +6,10 @@ Projet réalisé par Michaël Gianfaldone.
 
 Lancer la commande `npm install` pour telecharger les dépendances du projet.
 
+## BDD
+
+Pour la persitence le projet utilise FireBase.
+
 ## Lancement
 
 Lancer ensuite au choix la commande `npm start` ou `ng serve --port <votre-port-ici>`.
