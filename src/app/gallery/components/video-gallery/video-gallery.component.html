@@ -1,4 +1,7 @@
 <div class="container">
+  <ng-container *ngIf="spinner" >
+    <mat-spinner class="container d-flex justify-content-center"></mat-spinner>
+  </ng-container>
   <div class="row">
     <div *ngFor="let v of videos | async" class="col-md-3 video" style="margin-bottom: 10px; font-size: 15px;">
       <div class="card video-item">

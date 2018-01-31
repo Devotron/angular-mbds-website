@@ -18,6 +18,8 @@ export class VideoGalleryComponent implements OnInit {
   private itemWidth: number;
   private itemHeight: number;
 
+  private spinner: boolean = true;
+
   constructor(private videoService: VideoService, private router: ActivatedRoute, private dataService: VideoDataService, private sanitizerService: DomSanitizer) { }
 
   ngOnInit() {
@@ -25,6 +27,11 @@ export class VideoGalleryComponent implements OnInit {
     this.itemHeight = 118;
 
     this.videos = this.dataService.getVideoList();
+
+    this.videos.subscribe(data => {
+      this.spinner = false
+    });
+
     let id = "w8m6Jg9Y7X0";
     //let vid = new Video('w8m6Jg9Y7X0', 'Critique d\'Aliens la saga', 'Second opus de la trilogie Alien ...');
     //this.dataService.updateVideoDetail(id, vid);
