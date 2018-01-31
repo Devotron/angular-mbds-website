@@ -4,7 +4,8 @@
     <!--<div *ngIf="videoForm.get('videoUrl').errors | async">
       Invalid Video URL
     </div>-->
-
+    <h3>Modifier les informations de la vidéo</h3>
+    <br>
     <div class="form-group">
       <label for="video">Url de la vidéo</label>
       <input type="url" name="video" id="video" class="form-control" [formControl]="videoUrl" required="true">
@@ -20,6 +21,6 @@
       <textarea row="5" name="desc" id="desc" class="form-control" [formControl]="desc"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Ajouter la vidéo</button>
+    <button type="submit" class="btn btn-primary">Modifier la vidéo</button>
   </form>
 </mat-card>
