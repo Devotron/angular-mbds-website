@@ -28,7 +28,7 @@ import { VideoUpdateComponent } from './components/video-update/video-update.com
     ReactiveFormsModule
   ],
   declarations: [VideoGalleryComponent, VideoDetailsComponent, VideoCreationComponent, VideoUpdateComponent],
-  providers: [VideoService, VideoDataService],
+  providers: [VideoService, VideoDataService, ValidationService],
   exports:[
     VideoDetailsComponent,
     VideoGalleryComponent

@@ -3,47 +3,49 @@ import {VideoDataService} from "./video-data.service";
 import {AbstractControl} from "@angular/forms";
 import {isUndefined} from "util";
 import {database} from "firebase/app";
+import {VideoService} from "./video.service";
+import {Observable} from "rxjs/Observable";
+import {promise} from "selenium-webdriver";
+import controlFlow = promise.controlFlow;
 
+
+@Injectable()
 export class ValidationService {
 
-  constructor(private dataService: VideoDataService) { }
+  constructor(private dataService: VideoDataService, private  videoService: VideoService) { }
 
-   /*static VideoAlreadyExist(control: AbstractControl) {
+   VideoAlreadyExist(url): Observable<boolean> {
 
+    let ID = this.videoService.getVideoID(url);
 
+    console.log("video ID : " + ID);
 
-    console.log("control value : " + control.value.toString());
+    let alreadyExist: boolean;
 
-    let videoID = "NA";
-    let extractId = control.value.toString().split('v=')[1];
-    console.log(extractId);
-
-      videoID = extractId.split('&')[0];
+    if ( ID != "NA") {
 
       let video;
 
-      this.dataService.getSingleVideo(videoID).subscribe(
+      this.dataService.getSingleVideo(ID).subscribe(
         v => {
           video = v;
           if ( video === null ) {
-            console.error("[ValidationService] - Video already exist");
-            return { VideoAlreadyExist: true };
+            console.warn("[ValidationService] - Video doesn't exist");
+            return Observable.of(false);
           }
         }
       );
+    }
 
-
-    console.log(videoID);
-
-    // if (!control.value.startsWith('https') || !control.value.includes('.io')) {
-    //   return { validUrl: true };
-    // }
-
-    return null;
-  }*/
+    return Observable.of(true);
+  }
 
   static InvalidVideoUrl(control: AbstractControl) {
 
+    if ( control.pristine ) {
+      return null;
+    }
+    
     let videoID = "NA";
     let extractId = control.value.toString().split('v=')[1];
     console.log(extractId);
@@ -52,7 +54,7 @@ export class ValidationService {
       videoID = extractId.split('&')[0];
       console.log(videoID);
     } else {
-      console.error("[ValidationService] - Video URL is invalid");
+      console.warn("[ValidationService] - Video URL is invalid");
       return { invalidVideoUrl: true};
     }
 

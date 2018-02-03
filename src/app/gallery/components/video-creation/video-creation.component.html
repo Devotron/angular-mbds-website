@@ -5,12 +5,18 @@
     Invalid Video URL
   </div>-->
   <h3>Ajouter une vidéo</h3>
+  <p *ngIf="!validForm" class="alert alert-danger">
+    <strong>Erreur:</strong> Formulaire érroné : veuiller remplir les champs correctement !
+  </p>
   <div class="form-group">
     <label for="video">Url de la vidéo</label>
-    <input type="url" name="video" id="video" class="form-control" [formControl]="videoUrl" required="true">
+    <input (input)="validateVideoAlreadyExist()" type="url" name="video" id="video" class="form-control" [formControl]="videoUrl" required="true">
   </div>
-  <p *ngIf="error" class="alert alert-danger">
-    <strong>Error:</strong> Cette vidéo existe déjà !
+  <p *ngIf="videoExist && videoUrl.dirty" class="alert alert-danger">
+    <strong>Erreur:</strong> Cette vidéo existe déjà !
+  </p>
+  <p *ngIf="videoUrl.dirty && videoUrl.getError('invalidVideoUrl')" class="alert alert-danger">
+    <strong>Erreur:</strong> URL invalide !
   </p>
 
   <div class="form-group">

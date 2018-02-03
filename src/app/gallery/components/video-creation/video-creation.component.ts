@@ -4,6 +4,7 @@ import {VideoDataService} from "../../services/video-data.service";
 import {ValidationService} from "../../services/validation.service";
 import {Video} from "../../models/video.model";
 import {VideoService} from "../../services/video.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-video-creation',
@@ -12,7 +13,7 @@ import {VideoService} from "../../services/video.service";
 })
 export class VideoCreationComponent implements OnInit {
 
-  constructor(private builder: FormBuilder, private dataService: VideoDataService, private videoService: VideoService) { }
+  constructor(private builder: FormBuilder, private dataService: VideoDataService, private videoService: VideoService, private validationService: ValidationService) { }
 
   private title = new FormControl('', Validators.required);
   private desc = new FormControl('');
@@ -20,6 +21,8 @@ export class VideoCreationComponent implements OnInit {
 
   private videoForm: FormGroup;
 
+  private validForm = true;
+  private videoExist = true;
 
   ngOnInit() {
     this.videoForm = this.builder.group({
@@ -31,18 +34,44 @@ export class VideoCreationComponent implements OnInit {
 
   formAction() {
 
-    let id = this.videoService.getVideoID(this.videoForm.controls.url.value.toString());
-    let title = this.videoForm.controls.title.value.toString();
-    let desc = this.videoForm.controls.desc.value.toString();
+    if ( !this.videoExist && !this.videoUrl.getError('invalidVideoUrl') ) {
 
-    let video = new Video(id, title, desc);
+      let id = this.videoService.getVideoID(this.videoForm.controls.url.value.toString());
+      let title = this.videoForm.controls.title.value.toString();
+      let desc = this.videoForm.controls.desc.value.toString();
 
-    console.log("Video : " + video.id );
+      let video = new Video(id, title, desc);
 
-    this.dataService.addVideo(video);
+      console.log("Video : " + video.id );
+
+      this.dataService.addVideo(video);
+
+    } else {
+
+      this.validForm = false;
+
+    }
 
   }
 
+  validateVideoAlreadyExist() {
 
+    this.dataService.getSingleVideo(this.videoService.getVideoID(this.videoUrl.value.toString())).subscribe(res => {
+      if ( res === null ) {
+        console.warn("[ValidationService] - Video doesn't exist");
+        this.videoExist = false;
+        this.validForm = true;
+        console.warn("1. exist : "  + this.videoExist);
+        console.warn("1. condition : " + this.videoExist && this.videoUrl.pristine);
+      } else {
+        console.warn("[ValidationService] - Video exist");
+        console.warn(res.title);
+        this.videoExist = true;
+        console.warn("2. exist : "  + this.videoExist);
+        console.warn("2. condition : " + this.videoExist && this.videoUrl.pristine);
+      }
+    });
+
+  }
 
 }

@@ -11,4 +11,8 @@ export class Video {
     //this.id = url.split('=')[1];
   }
 
+  toString() : string {
+    return "Video : " + this.id + "; " + this.title + "; " + this.desc;
+  }
+
 }
