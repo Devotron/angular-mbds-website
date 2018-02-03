@@ -20,4 +20,4 @@ A moin d'avoir configurer le port avec l'option --port, l'application se lance p
 
 + Affichage gallerie de vidéos
 + Ajout, Modification et suppression de vidéos
-+ Pas de validation sur les formulaires (verification video déjà existante).
++ support de la validation sur les formulaires (verification video déjà existante).
